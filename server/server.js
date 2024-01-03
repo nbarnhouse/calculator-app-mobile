@@ -13,6 +13,9 @@ let calculations = [{numOne: 3, numTwo: 5, operator: '+', result: 8}]
 // Here's a wonderful place to make some routes:
 
 // GET /calculations
+app.get('/calculations', (req, res) => {
+  res.send(calculations);
+});
 
 // POST /calculations
 
