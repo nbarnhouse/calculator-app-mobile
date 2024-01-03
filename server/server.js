@@ -71,7 +71,7 @@ app.post('/calculations', (req, res) => {
       return;
     };
 
-  VarOperator(newData);
+  //VarOperator(newData);
   console.log(`Added calculations`, newData);
   res.sendStatus(201);
 

@@ -9,22 +9,22 @@
   <body>
     <h1>Server-Side Calculator</h1>
 
-    <form data-testid="calculator">
+    <form id="calcForm" data-testid="calculator">
       <input id="firsNum" placeholder="First Number">
       <button id="add">+</button>
       <button id="subtract">-</button>
       <button id="multiply">*</button>
       <button id="divide">/</button>
       <input id="secondNum" placeholder="Second Number">
-      <button>=</button>
+      <button type="submit">=</button>
       <button id="clear">C</button>
     </form>
 
-    <section class="recentResult" data-testid="recentResult">
+    <section id="recentResult" data-testid="recentResult">
       <!-- The most recent calculation result goes here. -->
     </section>
 
-    <section class="resultHistory" data-testid="resultHistory">
+    <section id="resultHistory" data-testid="resultHistory">
       <!-- The list of calculation results goes here. -->
     </section>
   </body>

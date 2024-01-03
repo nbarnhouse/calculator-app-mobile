@@ -38,7 +38,7 @@ function renderHistory(dataList) {
     for (let item of dataList) {
         itemRender.innerHTML += `
         <li>
-            <ul>${item.firstNum} ${item.operator} ${item.secondNum} = ${item.result}</ul>
+            <ul>${item.numOne} ${item.operator} ${item.numTwo} = ${item.result}</ul>
         </li>
     `;
     }
