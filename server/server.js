@@ -7,7 +7,7 @@ app.use(express.static('server/public'));
 
 // Global variable that will contain all of the
 // calculation objects:
-let calculations = []
+let calculations = [{numOne: 3, numTwo: 5, operator: '+', result: 8}]
 
 
 // Here's a wonderful place to make some routes:
