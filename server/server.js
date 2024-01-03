@@ -10,6 +10,20 @@ app.use(express.static('server/public'));
 let calculations = [{numOne: 3, numTwo: 5, operator: '+', result: 8}]
 
 
+//function to calculate data
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Here's a wonderful place to make some routes:
 
 // GET /calculations
@@ -18,7 +32,30 @@ app.get('/calculations', (req, res) => {
 });
 
 // POST /calculations
+app.post('/calculations', (req, res) => {
 
+  const newData = req.body;
+  // store data
+  console.log(`POST request for Data calculations`, newData);
+
+  if (
+      newData.numOne == null ||
+      newData.numTwo == null ||
+      newData.operator == null,
+      !newData.numOne,
+      !newData.numTwo,
+      !newData.operator 
+
+    ) {
+      res.sendStatus(400);
+      return;
+    };
+
+  calculations.push(newData);
+  console.log(`Added calculations`, newData);
+  res.sendStatus(201);
+
+});
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
 // 🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸
