@@ -9,23 +9,43 @@ app.use(express.static('server/public'));
 // calculation objects:
 let calculations = [{numOne: 3, numTwo: 5, operator: '+', result: 8}]
 
-
 //function to calculate data
+function VarOperator(firstNum, secondNum, userOperator) {
+  let result = 0;
 
+  switch (userOperator) {
+      case "+":
+          result = firstNum + secondNum;
+          break;
+      case "-":
+          result = firstNum - secondNum;
+          break;
+      case "*":
+          result = firstNum * secondNum;
+          break;
+      case "/":
+          result = firstNum / secondNum;
+          break;
+      default:
+          console.error("Invalid operator");
+          return;
+  }
 
+  const calculationObject = {
+    numOne: firstNum,
+    numTwo: secondNum,
+    operator: userOperator,
+    result: result
+  }
+  calculations.push(calculationObject);
+  return result;
+};
 
-
-
-
-
-
-
-
-
-
+//Test functionality of VarOperator before adding to POST route
+//VarOperator(3, 6, '*');
+//console.log(calculations);
 
 // Here's a wonderful place to make some routes:
-
 // GET /calculations
 app.get('/calculations', (req, res) => {
   res.send(calculations);
@@ -51,7 +71,7 @@ app.post('/calculations', (req, res) => {
       return;
     };
 
-  calculations.push(newData);
+  VarOperator(newData);
   console.log(`Added calculations`, newData);
   res.sendStatus(201);
 
