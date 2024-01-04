@@ -12,19 +12,21 @@ let calculations = [{numOne: 3, numTwo: 5, operator: '+', result: 8}]
 //function to calculate data
 function VarOperator(firstNum, secondNum, userOperator) {
   let result = 0;
+  let firstNumFixed = parseInt(firstNum);
+  let secondNumFixed = parseInt(secondNum);
 
   switch (userOperator) {
       case "+":
-          result = firstNum + secondNum;
+          result = firstNumFixed + secondNumFixed;
           break;
       case "-":
-          result = firstNum - secondNum;
+          result = firstNumFixed - secondNumFixed;
           break;
       case "*":
-          result = firstNum * secondNum;
+          result = firstNumFixed * secondNumFixed;
           break;
       case "/":
-          result = firstNum / secondNum;
+          result = firstNumFixed / secondNumFixed;
           break;
       default:
           console.error("Invalid operator");
@@ -60,12 +62,12 @@ app.post('/calculations', (req, res) => {
   console.log(`POST request for Data calculations`, newData);
 
   if (
-      newData.numOne == null ||
-      newData.numTwo == null ||
-      newData.operator == null,
-      !newData.numOne,
-      !newData.numTwo,
-      !newData.operator
+    newData.numOne == null ||
+    //typeof newData.numOne !== 'number' ||
+    newData.numTwo == null ||
+    //typeof newData.numTwo !== 'number' ||
+    newData.operator == null ||
+    !newData.operator
     ) {
       res.sendStatus(400);
       return;
