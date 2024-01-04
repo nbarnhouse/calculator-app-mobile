@@ -21,7 +21,7 @@ function fetchCalcs(){
 };
 
 function renderCalcs(dataList) {
-    console.log('renderInventory');
+    console.log('render result');
     const itemRender = document.querySelector('#recentResult');
     itemRender.innerHTML = '';
     for (let item of dataList) {
@@ -32,7 +32,7 @@ function renderCalcs(dataList) {
 };
 
 function renderHistory(dataList) {
-    console.log('renderInventory');
+    console.log('render history');
     const itemRender = document.querySelector('#resultHistory');
     itemRender.innerHTML = '';
     for (let item of dataList) {

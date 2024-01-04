@@ -37,6 +37,7 @@ function VarOperator(firstNum, secondNum, userOperator) {
     operator: userOperator,
     result: result
   }
+
   calculations.push(calculationObject);
   return result;
 };
@@ -64,14 +65,13 @@ app.post('/calculations', (req, res) => {
       newData.operator == null,
       !newData.numOne,
       !newData.numTwo,
-      !newData.operator 
-
+      !newData.operator
     ) {
       res.sendStatus(400);
       return;
     };
 
-  //VarOperator(newData);
+  VarOperator(newData.numOne, newData.numTwo, newData.operator);
   console.log(`Added calculations`, newData);
   res.sendStatus(201);
 
