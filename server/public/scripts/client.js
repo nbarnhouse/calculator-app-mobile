@@ -26,7 +26,8 @@ function renderCalcs(dataList) {
     itemRender.innerHTML = '';
     for (let item of dataList) {
         itemRender.innerHTML = `
-        <h2>${item.result}</h2><br>
+        <h3>Result</h3>
+        <h3>${item.result}</h3><br>
     `;
     }
 };
